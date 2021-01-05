@@ -75,7 +75,7 @@ body {
     width: 40%;
     height: 100%;
     /* border: yellow solid 2px; */
-    background-image: url("../src/차트배경.png");
+    background-image: url("../src/chart_bg.png");
     background-size: cover;
     background-position: bottom right;
     margin: 0;
