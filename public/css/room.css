@@ -344,6 +344,12 @@ ul {
     height: 10%;
 }
 
+.floating_clapping {
+    position: absolute;
+    left: 2%;
+    bottom: 45%;
+}
+
 .floating_recording {
     position: absolute;
     left: 2%;
