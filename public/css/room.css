@@ -1,0 +1,397 @@
+@font-face {
+    font-family: "jalnan";
+    src: url("../font/Jalnan.ttf");
+}
+
+@font-face {
+    font-family: "NanumSquare_EB";
+    src: url("../font/NanumSquareExtraBold.ttf");
+}
+
+@font-face {
+    font-family: "NanumSquare_B";
+    src: url("../font/NanumSquareBold.ttf");
+}
+
+@font-face {
+    font-family: "NanumSquare_R";
+    src: url("../font/NanumSquareRegular.ttf");
+}
+
+@font-face {
+    font-family: "NanumSquare_L";
+    src: url("../font/NanumSquareLight.ttf");
+}
+
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.webcams {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 40%;
+    /* border: red solid 2px; */
+}
+
+.webcam {
+    width: 25%;
+    height: 100%;
+    border: pink solid 2px;
+}
+
+.music_chart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 60%;
+    /* border: blue solid 2px; */
+}
+
+.music {
+    position: relative;
+
+    /* width: 128%; */
+    width: 60%;
+    height: 100%;
+    /* border: palegreen solid 2px; */
+}
+
+.chart {
+    /* width: 64%; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    height: 100%;
+    /* border: yellow solid 2px; */
+    background-image: url("../src/차트배경.png");
+    background-size: cover;
+    background-position: bottom right;
+    margin: 0;
+}
+
+#info_img {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: url('../src/info_img.jpg');
+    background-position: center;
+    background-size: cover;
+}
+
+.chart_nav {
+    height: 20%; 
+    width: 100%;
+    font-family: "NanumSquare_EB";
+}
+
+#tab_popular {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70%;
+    width: 100%;
+    font-family: "NanumSquare_R";
+    color: rgba(214, 214, 214, 0.945);
+}
+
+#tab_reservation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70%;
+    width: 100%;
+    font-family: "NanumSquare_R";
+    color: rgba(214, 214, 214, 0.945);
+
+}
+
+.chart_nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    /* border-bottom: 1px solid #6CD7E6; */
+}
+
+
+
+.chart_nav ul li  {
+    display: block;
+    height: 58px;
+    width: 40%;
+    font-size: 1rem;
+    color: rgba(214, 214, 214, 0.945);
+    text-align: center;
+    line-height: 58px;
+    text-decoration: none;
+    cursor: pointer;
+    
+}
+
+.chart_nav ul .on {
+    border-bottom: 2px solid #6CD7E6;
+    color: #6CD7E6;
+
+}
+
+.tab_content{
+    display: none;
+    color: #fff;
+}
+
+.current{
+    display: inherit;
+}
+
+#popular_list {
+    display: block;
+    list-style-type: disc;
+    height: 100%;
+    width: 80%;
+    list-style: none;
+    max-height: inherit;
+    overflow-y: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+#reserve_list {
+    display: block;
+    list-style-type: disc;
+    height: 100%;
+    width: 80%;
+    list-style: none;
+    max-height: inherit;
+    overflow-y: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+ul {
+    display: block;
+    list-style-type: disc;
+
+}
+
+#popular_list::-webkit-scrollbar {
+    background-color: rgba(255, 255, 255, 0);
+    width: 10px;
+}
+
+#reserve_list::-webkit-scrollbar {
+    background-color: rgba(255, 255, 255, 0);
+    width: 10px;
+}
+
+#popular_list::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.658);
+    border-radius: 8px;
+    background-clip: padding-box;
+}
+
+#reserve_list::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.658);
+    border-radius: 8px;
+    background-clip: padding-box;
+}
+
+.popular_item {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border-bottom: 1px solid #888;
+    /* height: 3rem; */
+    /* min-height: 3rem; */
+    min-height: 60px;
+    overflow: hidden;
+    /* text-align: center; */
+}
+
+.reserve_item {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #888;
+    min-height: 60px;
+    overflow: hidden;
+}
+
+.btn_area {
+    width: 10%;
+}
+
+.reserve_data {
+    width: 70%;
+    display: inline-block;
+    /* width: 30%; */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+.reserve_btn {
+    background-color:#FFB241;
+    font-size:20px;
+    margin-right:10px;
+    cursor:pointer;
+    color:#ffffff;
+    border-radius:4px;
+    opacity:0.9;
+    font-weight:600;
+    border: none;
+    outline: 0;
+}
+
+.play_btn {
+    background-color:#FFB241;
+    font-size:20px;
+    margin-right:10px;
+    cursor:pointer;
+    color:#ffffff;
+    border-radius:4px;
+    opacity:0.9;
+    font-weight:600;
+    border: none;
+    outline: 0;
+}
+
+.cancel_btn {
+    background-color:#FFB241;
+    font-size:20px;
+    margin-right:10px;
+    cursor:pointer;
+    color:#ffffff;
+    border-radius:4px;
+    opacity:0.9;
+    font-weight:600;
+    border: none;
+    outline: 0;
+}
+
+.reserve_btn:hover {
+    opacity:0.7;
+}
+
+
+.popular_data {
+    /* margin: 0 auto; */
+    width: 90%;
+    cursor: pointer;
+}
+
+#tab_popular .rank {
+    display: inline-block;
+    width: 15%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-family: 'NanumSquare_B';
+}
+
+#tab_popular .title {
+    display: inline-block;
+    width: 50%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+}
+
+#tab_popular .artist {
+    display: inline-block;
+    width: 30%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+}
+
+#tab_reservation .title {
+    display: inline-block;
+    width: 50%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#tab_reservation .artist {
+    display: inline-block;
+    width: 37%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+}
+
+.reserve_btn_area {
+    width: fit-content;
+}
+
+.blank {
+    height: 10%;
+}
+
+.floating_recording {
+    position: absolute;
+    left: 2%;
+    bottom: 35%;
+
+}
+
+.floating_pause {
+    position: absolute;
+    left: 2%;
+    bottom: 25%;
+}
+
+.floating_stop {
+    position: absolute;
+    left: 2%;
+    bottom: 15%;
+}
+
+.floating_exit {
+    position: absolute;
+    left: 2%;
+    bottom: 5%;
+}
+
+.floatingBtn {
+    width: 50px;
+    height: 50px;
+    border: none;
+    background-color: transparent;
+    border-color: transparent;
+    outline: none;
+    cursor: pointer;
+}
+
+.imgBtn {
+    height: 50px;
+    width: 50px;
+    filter: drop-shadow(5px 5px 5px rgba(44, 44, 44, 0.555));
+}
+.pauseBtn {
+    background: url('../src/pauseBtn.png') no-repeat;
+}
+
+.stopBtn {
+    background: url('../src/stopBtn.png');
+}
+
+.exitBtn {
+    background: url('../src/exitBtn.png');
+}
