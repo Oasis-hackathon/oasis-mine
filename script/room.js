@@ -168,4 +168,7 @@ function addOn(clicked_id) {
     clicked_item.classList.add("on");
 };
 
-
+function clapSound() {
+    let audio = document.getElementById("clap_audio");
+    audio.play();
+}
