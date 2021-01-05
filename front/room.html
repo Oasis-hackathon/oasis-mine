@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>방구석 노래방</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <link rel="stylesheet" href="css/room.css">
+</head>
+
+<body>
+    <div class="webcams">
+        <div class="webcam">1</div>
+        <div class="webcam">2</div>
+        <div class="webcam">3</div>
+        <div class="webcam">4</div>
+    </div>
+    <div class="music_chart">
+        <div class="music">
+            <div id="info_img"></div>
+            <video id="video" src="" height="100%" width="100%"></video>
+        </div>
+        <div class="chart">
+            <nav class="chart_nav">
+                <ul>
+                    <li class="chart_popular on" id="chart_popular" onclick="addOn(this.id)">인기차트</li>
+                    <li class="chart_reservation" id="chart_reservation" onclick="addOn(this.id)">예약차트</li>
+                </ul>
+            </nav>
+            <div id="tab_popular" class="tab_content current">
+                <ul id="popular_list"></ul>
+            </div>
+
+            <div id="tab_reservation" class="tab_content">
+                <ul id="reserve_list"></ul>
+            </div>
+            <div class="blank"></div>
+        </div>
+    </div>
+    <div class="floating_recording">
+        <button class="floatingBtn"><img id="recBtn" src="/src/recBtn.png" class="imgBtn" /></button>
+    </div>
+    <div class="floating_pause">
+        <!-- 토글버튼으로 재생으로 바꾸기 -->
+        <button class="floatingBtn" onclick="pauseVideo()"><img id="pauseBtn" src="/src/playBtn.png"
+                class="imgBtn" /></button>
+    </div>
+    <div class="floating_stop">
+        <button class="floatingBtn" onclick="stopVideo()"><img id="stopBtn" src="/src/stopBtn.png"
+                class="imgBtn" /></button>
+    </div>
+    <div class="floating_exit">
+        <button class="floatingBtn" onclick="exitVideo()"><img id="exitBtn" src="/src/exitBtn.png"
+                class="imgBtn" /></button>
+    </div>
+    <script src="js/room.js"></script>
+</body>
+
+</html>
