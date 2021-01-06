@@ -1,6 +1,8 @@
+
 let popular_datas;
 
 $.ajax({
+    type: 'get',
     url: '/chart',
     success: function (data) {
         console.log(data);

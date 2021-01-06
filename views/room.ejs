@@ -7,14 +7,20 @@
     <title>방구석 노래방</title>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <link rel="stylesheet" href="css/room.css">
+    <script>
+        const ROOM_ID = "<%= roomId %>";
+    </script>
+    <script defer src="https://unpkg.com/peerjs@1.2.0/dist/peerjs.min.js"></script>
+    <script src = "/socket.io/socket.io.js" defer></script>
+    <script src="script.js" defer></script>
 </head>
 
 <body>
-    <div class="webcams">
-        <div class="webcam">1</div>
-        <!-- <div class="webcam">2</div>
-        <div class="webcam">3</div>
-        <div class="webcam">4</div> -->
+    <div id="webcams">
+        <!-- <div class="webcam"></div>
+        <div class="webcam"></div>
+        <div class="webcam"></div>
+        <div class="webcam"></div> -->
     </div>
     <div class="music_chart">
         <div class="music">
@@ -54,6 +60,7 @@
         <button class="floatingBtn" onclick="exitVideo()"><img id="exitBtn" src="/src/exitBtn.png"
                 class="imgBtn" /></button>
     </div>
+    <!-- <audio autoplay muted id="audioCtr"></audio> -->
     <script src="script/room.js"></script>
 </body>
 

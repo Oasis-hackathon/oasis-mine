@@ -8,7 +8,11 @@ const db = require('./db.js');
 const connection = mysql.createConnection(db);
 
 const app = express();
+const server = require('http').Server(app);
+const io = require('socket.io')(server);
+
 const s3 = new awssdk.S3();
+const { v4: uudiV4 } = require('uuid')
 
 app.use(express.json());
 
@@ -22,20 +26,8 @@ app.set('port', process.env.PORT || 3000);
 app.use(express.static('public'));
 
 var indexRouter = require('./routes/index');
-var rommsRouter = require('./routes/rooms');
+var roomsRouter = require('./routes/rooms');
 var byeRouter = require('./routes/bye');
-var chartRouter = require('./api/chart');
-
-app.use('/', indexRouter);
-app.use('/room', rommsRouter);
-app.use('/bye', byeRouter);
-app.use('/api/chart', chartRouter);
-
-app.get('/video', (req, res) => {
-    connection.query("SELECT link from chart where chartrank="+ req.query.rank, (error, result) => {
-        res.send(result);
-    })
-});
 
 app.get('/chart', (req, res) => {
     connection.query("SELECT * from chart", (error, result) => {
@@ -43,24 +35,27 @@ app.get('/chart', (req, res) => {
     })
 });
 
-app.post('/post', (req, res) => {
-    const form = new formidable.IncomingForm();
-    form.parse(req, function (err, fields, files) {
-        const params = {
-            Bucket: 'oasismine',
-            Key: files.file.name,
-            Body: fs.createReadStream(files.file.path)
-        }
-        s3.upload(params, function (error, data) {
-            if (error)
-                res.send("Fail");
-            else
-                res.send(data.Location);
-        })
-    })
-});
+app.use('/', indexRouter);
+// app.use('/room', roomsRouter);
+app.use('/bye', byeRouter);
 
-app.listen(app.get('port'), () => {
+app.get('/room', (req, res) => {
+    res.redirect(`/${uudiV4()}`)
+})
+
+app.get('/:room', (req, res) => {
+    res.render('room', {roomId: req.params.room});
+})
+
+io.on('connection', socket => {
+    socket.on('join-room', (roomId, userId) => {
+        socket.join(roomId);
+        socket.to(roomId).broadcast.emit('user-connected', userId);
+    })
+})
+
+server.listen(app.get('port'), () => {
     console.log('Express server listening on port ' + app.get('port'));
 });
+
 
